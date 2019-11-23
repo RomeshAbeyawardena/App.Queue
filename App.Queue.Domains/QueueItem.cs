@@ -8,7 +8,8 @@ namespace App.Queue.Domains
         [Key]
         public int Id { get; set; }
         public int QueueId { get; set; }
-        public DateTimeOffset? Created { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset Modified { get; set; }
         public DateTimeOffset? Completed { get; set; }
         public DateTimeOffset? LastAttempted { get; set; }
     }

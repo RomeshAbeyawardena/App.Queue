@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace App.Queue.Domains
 {
@@ -6,5 +7,8 @@ namespace App.Queue.Domains
     {
         [Key]
         public int Id { get; set; }
+        public Guid UniqueId { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset Modified { get; set; }
     }
 }

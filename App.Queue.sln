@@ -1,21 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.App", "App.Queue.App\App.Queue.App.csproj", "{CB762E76-E6D2-4DFB-9254-B39B62741219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.App", "App.Queue.App\App.Queue.App.csproj", "{CB762E76-E6D2-4DFB-9254-B39B62741219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Broker", "App.Queue.Broker\App.Queue.Broker.csproj", "{8517273A-BA63-4E67-9778-B4978023CFFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Broker", "App.Queue.Broker\App.Queue.Broker.csproj", "{8517273A-BA63-4E67-9778-B4978023CFFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Contracts", "App.Queue.Contracts\App.Queue.Contracts.csproj", "{10DF083E-3F06-4ACD-8193-04598F46B7C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Contracts", "App.Queue.Contracts\App.Queue.Contracts.csproj", "{10DF083E-3F06-4ACD-8193-04598F46B7C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Data", "App.Queue.Data\App.Queue.Data.csproj", "{83C24897-F99B-42A5-92E2-9E8731104050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Data", "App.Queue.Data\App.Queue.Data.csproj", "{83C24897-F99B-42A5-92E2-9E8731104050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Domains", "App.Queue.Domains\App.Queue.Domains.csproj", "{3AD748B6-55B6-4551-9196-C9DF2AC1CE2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Domains", "App.Queue.Domains\App.Queue.Domains.csproj", "{3AD748B6-55B6-4551-9196-C9DF2AC1CE2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Services", "App.Queue.Services\App.Queue.Services.csproj", "{5A29D040-6E67-4385-A09A-0E919B3D9272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Services", "App.Queue.Services\App.Queue.Services.csproj", "{5A29D040-6E67-4385-A09A-0E919B3D9272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Queue.Shared", "App.Queue.Shared\App.Queue.Shared.csproj", "{FAB63A26-8A64-4CC1-A5E8-20F754746382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Queue.Shared", "App.Queue.Shared\App.Queue.Shared.csproj", "{FAB63A26-8A64-4CC1-A5E8-20F754746382}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F3864A0-8D06-40E5-A6F9-2F52F09A81A6}"
+	ProjectSection(SolutionItems) = preProject
+		Setup.sql = Setup.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,9 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CB762E76-E6D2-4DFB-9254-B39B62741219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -114,5 +116,11 @@ Global
 		{FAB63A26-8A64-4CC1-A5E8-20F754746382}.Release|x64.Build.0 = Release|Any CPU
 		{FAB63A26-8A64-4CC1-A5E8-20F754746382}.Release|x86.ActiveCfg = Release|Any CPU
 		{FAB63A26-8A64-4CC1-A5E8-20F754746382}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9E82E13-93B2-4942-AE0C-AE38B5D16F78}
 	EndGlobalSection
 EndGlobal

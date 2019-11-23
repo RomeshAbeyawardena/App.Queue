@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 Namespace=App.Queue.Contracts Type=IApplicationSettings)" Category="CodeSchema_Interface" Bounds="-9110.67333333333,-9924.8751,146.936666666668,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="IApplicationSettings" Icon="Microsoft.VisualStudio.Interface.Public" Label="IApplicationSettings" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Contracts/IApplicationSettings.cs StartLineNumber=2 StartCharacterOffset=21 EndLineNumber=2 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="(@1 Namespace=App.Queue.Contracts Type=IQueueItemService)" Category="CodeSchema_Interface" Bounds="-9110.67333333333,-9868.875,140.543333333333,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="IQueueItemService" Icon="Microsoft.VisualStudio.Interface.Public" Label="IQueueItemService" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Contracts/IQueueItemService.cs StartLineNumber=7 StartCharacterOffset=21 EndLineNumber=7 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="(@1 Namespace=App.Queue.Contracts Type=IQueueService)" Category="CodeSchema_Interface" Bounds="-9110.67333333333,-9812.8749,116.669999999998,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="IQueueService" Icon="Microsoft.VisualStudio.Interface.Public" Label="IQueueService" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Contracts/IQueueService.cs StartLineNumber=4 StartCharacterOffset=21 EndLineNumber=4 EndCharacterOffset=34)" UseManualLocation="True" />
+    <Node Id="(@2 Namespace=App.Queue.Services Type=QueueItemService)" Category="CodeSchema_Class" Bounds="-9032.19666666667,-9656.75,137.349999999999,26" CodeSchemaProperty_IsPublic="True" CommonLabel="QueueItemService" Icon="Microsoft.VisualStudio.Class.Public" Label="QueueItemService" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Services/QueueItemService.cs StartLineNumber=14 StartCharacterOffset=17 EndLineNumber=14 EndCharacterOffset=33)" UseManualLocation="True" />
+    <Node Id="(@2 Namespace=App.Queue.Services Type=QueueService)" Category="CodeSchema_Class" Bounds="-9517.5,-9719.5,113.476666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="QueueService" Icon="Microsoft.VisualStudio.Class.Public" Label="QueueService" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Services/QueueService.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=29)" UseManualLocation="True" />
+    <Node Id="(@2 Namespace=App.Queue.Services Type=ServiceRegistration)" Category="CodeSchema_Class" Bounds="-9274.5,-9719,141.606666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="ServiceRegistration" Icon="Microsoft.VisualStudio.Class.Public" Label="ServiceRegistration" SourceLocation="(Assembly=file:///C:/Source/Repos/App.Queue/App.Queue.Services/ServiceRegistration.cs StartLineNumber=10 StartCharacterOffset=17 EndLineNumber=10 EndCharacterOffset=36)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 Namespace=App.Queue.Contracts Type=IQueueService)" Target="(@2 Namespace=App.Queue.Services Type=QueueItemService)" Bounds="-9044.94244927192,-9786.875,69.5753100735728,122.302238334894" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Interface" Label="Interface" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Interfaces" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(10df083e-3f06-4acd-8193-04598f46b7c4.OutputPathUri)" />
+    <Alias n="2" Uri="Assembly=$(5a29d040-6e67-4385-a09a-0e919b3d9272.OutputPathUri)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="10df083e-3f06-4acd-8193-04598f46b7c4.OutputPathUri" Value="file:///C:/Source/Repos/App.Queue/App.Queue.Contracts/bin/Debug/netstandard2.1/App.Queue.Contracts.dll" />
+    <Path Id="5a29d040-6e67-4385-a09a-0e919b3d9272.OutputPathUri" Value="file:///C:/Source/Repos/App.Queue/App.Queue.Services/bin/Debug/netstandard2.1/App.Queue.Services.dll" />
+  </Paths>
+</DirectedGraph>
