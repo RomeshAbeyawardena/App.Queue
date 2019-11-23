@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace App.Queue.Domains.Enumerations
+﻿namespace App.Queue.Domains.Enumerations
 {
     public enum QueueItemStatusType
     {

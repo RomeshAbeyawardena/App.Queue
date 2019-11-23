@@ -1,9 +1,7 @@
 ﻿using App.Queue.Contracts;
 using App.Queue.Data;
-using App.Queue.Domains;
 using Shared.Contracts;
 using Shared.Contracts.Factories;
-using System;
 using System.Threading.Tasks;
 
 namespace App.Queue.Services

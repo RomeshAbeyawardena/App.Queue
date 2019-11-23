@@ -1,10 +1,10 @@
 ﻿using App.Queue.Contracts;
+using App.Queue.Domains.Enumerations;
+using App.Queue.Services.QueryBuilder;
 using App.Queue.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Shared.Contracts.Builders;
 
 namespace App.Queue.Services
 {
@@ -14,6 +14,7 @@ namespace App.Queue.Services
         {
             services
                 .AddSingleton<IApplicationSettings, DefaultApplicationSettings>()
+                .AddSingleton<IQueryBuilder<Domains.QueueItem, QueueItemStatusType>, QueueItemStatusQueryBuilder>()
                 .AddScoped<IQueueService, QueueService>()
                 .AddScoped<IQueueItemService, QueueItemService>();
 

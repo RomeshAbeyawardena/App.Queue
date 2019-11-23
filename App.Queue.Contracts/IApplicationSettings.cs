@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace App.Queue.Contracts
+﻿namespace App.Queue.Contracts
 {
     public interface IApplicationSettings
     {

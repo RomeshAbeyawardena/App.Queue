@@ -4,8 +4,6 @@ using Shared.Contracts;
 using Shared.Domains;
 using Shared.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Shared.Library.Extensions;
 using App.Queue.Domains.Enumerations;

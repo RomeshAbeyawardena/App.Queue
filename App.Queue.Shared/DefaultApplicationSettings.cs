@@ -1,6 +1,5 @@
 ﻿using App.Queue.Contracts;
 using Microsoft.Extensions.Configuration;
-using System;
 
 namespace App.Queue.Shared
 {
