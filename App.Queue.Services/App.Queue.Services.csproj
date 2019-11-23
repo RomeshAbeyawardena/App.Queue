@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Queue.Contracts\App.Queue.Contracts.csproj" />
+    <ProjectReference Include="..\App.Queue.Data\App.Queue.Data.csproj" />
+    <ProjectReference Include="..\App.Queue.Shared\App.Queue.Shared.csproj" />
   </ItemGroup>
 
 </Project>

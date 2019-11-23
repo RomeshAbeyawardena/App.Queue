@@ -4,4 +4,12 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.Queue.Contracts\App.Queue.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

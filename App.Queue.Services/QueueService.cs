@@ -1,5 +1,8 @@
 ﻿using App.Queue.Contracts;
+using App.Queue.Data;
 using App.Queue.Domains;
+using Shared.Contracts;
+using Shared.Contracts.Factories;
 using System;
 using System.Threading.Tasks;
 
@@ -7,14 +10,21 @@ namespace App.Queue.Services
 {
     public class QueueService : IQueueService
     {
-        public Task<Domains.Queue> GetQueue(int queueId)
+        private readonly IRepository<Domains.Queue> _queueRepository;
+
+        public async Task<Domains.Queue> GetQueue(int queueId)
         {
-            throw new NotImplementedException();
+            return await _queueRepository.FindAsync(queueId);
         }
 
-        public Task<Domains.Queue> SaveQueue(Domains.Queue queue, bool saveChanges = true)
+        public async Task<Domains.Queue> SaveQueue(Domains.Queue queue, bool saveChanges = true)
         {
-            throw new NotImplementedException();
+            return await _queueRepository.SaveChangesAsync(queue, saveChanges);
+        }
+
+        public QueueService(IRepositoryFactory repositoryFactory)
+        {
+            _queueRepository = repositoryFactory.GetRepository<AppQueueDbContext, Domains.Queue>();
         }
     }
 }
