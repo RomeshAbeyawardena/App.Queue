@@ -1,5 +1,5 @@
-CREATE DATABASE [AppQueue]
-GO
+--CREATE DATABASE [AppQueue]
+--GO
 
 USE AppQueue
 
@@ -10,6 +10,7 @@ CREATE TABLE [dbo].[Queue]
 	,[UniqueId] UNIQUEIDENTIFIER NOT NULL
 	,[Created] DATETIMEOFFSET NOT NULL
 	,[Modified] DATETIMEOFFSET NOT NULL
+	,INDEX Idx_Queue NONCLUSTERED ([UniqueId])
 ) 
 
 CREATE TABLE [dbo].[QueueItem]
@@ -19,6 +20,7 @@ CREATE TABLE [dbo].[QueueItem]
 	,[QueueId] INT NOT NULL
 		CONSTRAINT FK_QueueItem_Queue
 		REFERENCES [dbo].[Queue]([Id])
+	,[Data] VARBINARY(MAX)
 	,[Completed] DATETIMEOFFSET NULL
 	,[LastAttempted] DATETIMEOFFSET NULL
 	,[Created] DATETIMEOFFSET NOT NULL

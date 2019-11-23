@@ -12,5 +12,7 @@ namespace App.Queue.Domains
         public DateTimeOffset Modified { get; set; }
         public DateTimeOffset? Completed { get; set; }
         public DateTimeOffset? LastAttempted { get; set; }
+
+        public virtual Queue Queue { get; set; }
     }
 }

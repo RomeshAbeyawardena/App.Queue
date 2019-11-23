@@ -18,9 +18,10 @@ namespace App.Queue.Data
                     var applicationSettings = serviceProvider
                         .GetService<IApplicationSettings>();
                     options
+                        .UseApplicationServiceProvider(serviceProvider)
                         .UseSqlServer(applicationSettings.DefaultConnectionString);
                 })
-                .RegisterDefaultEntityProvider<Domains.Queue>(queueOptions => {
+                .RegisterDefaultEntityValueProvider<Domains.Queue>(queueOptions => {
                     queueOptions
                     .AddDefaults(EntityState.Added, (serviceProvider, queue) => {
                         var clockProvider = GetClockProvider(serviceProvider);
@@ -33,7 +34,7 @@ namespace App.Queue.Data
                         queue.Modified = clockProvider.Now;
                     });
                 })
-                .RegisterDefaultEntityProvider<Domains.QueueItem>(queueItemOptions => {
+                .RegisterDefaultEntityValueProvider<Domains.QueueItem>(queueItemOptions => {
                     queueItemOptions
                     .AddDefaults(EntityState.Added, (serviceProvider, queueItem) => {
                         var clockProvider = GetClockProvider(serviceProvider);
@@ -44,8 +45,7 @@ namespace App.Queue.Data
                         var clockProvider = GetClockProvider(serviceProvider);
                         queueItem.Modified = clockProvider.Now;
                     });
-                })
-                .RegisterDefaultEntityProvider<Domains.QueueItem>();
+                });
         }
 
         private static IClockProvider GetClockProvider(IServiceProvider serviceProvider)

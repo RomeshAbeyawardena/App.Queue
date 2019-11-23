@@ -14,6 +14,13 @@ namespace App.Queue.App
 
         public async Task<int> Begin()
         {
+            
+            var newQueue = await mediator.Push(DefaultEvent.Create(new Domains.Queue {
+                
+                }));
+
+
+
             await mediator
                 .Send<IEvent<Domains.QueueItem>>(DefaultCommand
                 .Create<Domains.QueueItem>(Constants.GetQueueItems, DictionaryBuilder
@@ -27,9 +34,6 @@ namespace App.Queue.App
                         .Create<string, object>()
                             .Add("QueueId", 1)));
 
-            await mediator.Push(DefaultEvent.Create(new Domains.Queue {
-                
-                }));
 
 
             return await Task.FromResult(1210);
