@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<installation installDirectory="C:\Source\Repos" projectName="App.Queue">
+  <projects>
+    <project name="App.Queue.App" path="C:\Source\Repos\App.Queue\App.Queue.App" />
+    <project name="App.Queue.Broker" path="C:\Source\Repos\App.Queue\App.Queue.Broker" />
+    <project name="App.Queue.Contracts" path="C:\Source\Repos\App.Queue\App.Queue.Contracts" />
+    <project name="App.Queue.Data" path="C:\Source\Repos\App.Queue\App.Queue.Data" />
+    <project name="App.Queue.Domains" path="C:\Source\Repos\App.Queue\App.Queue.Domains" />
+    <project name="App.Queue.Services" path="C:\Source\Repos\App.Queue\App.Queue.Services" />
+    <project name="App.Queue.Shared" path="C:\Source\Repos\App.Queue\App.Queue.Shared" />
+  </projects>
+</installation>
