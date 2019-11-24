@@ -24,9 +24,11 @@ namespace App.Queue.Services
 
         public async Task<IEnumerable<QueueItem>> GetQueueItems(int queueId, QueueItemStatusType? queueItemStatusType = null)
         {
+            var queueItemStatusExpression = _queryBuilderFactory
+                .GetExpression<QueueItem, QueueItemStatusType>(queueItemStatusType);
             return await queueItemRepository
                 .Where(queueItem => queueItem.QueueId == queueId)
-                .Where(_queryBuilderFactory.GetExpression<QueueItem, QueueItemStatusType>(queueItemStatusType))
+                .Where(queueItemStatusExpression)
                 .ToArrayAsync();
         }
 

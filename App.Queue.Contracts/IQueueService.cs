@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace App.Queue.Contracts
 {
     public interface IQueueService
     {
+        Task<Domains.Queue> GetQueue(Guid queueId);
         Task<Domains.Queue> GetQueue(int queueId);
         Task<Domains.Queue> SaveQueue(Domains.Queue queue, bool saveChanges = true);
     }

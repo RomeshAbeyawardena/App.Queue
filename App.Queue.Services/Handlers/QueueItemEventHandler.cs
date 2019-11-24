@@ -13,29 +13,18 @@ namespace App.Queue.Services.Handlers
     public class QueueItemEventHandler : DefaultEventHandler<IEvent<QueueItem>>
     {
         private readonly IQueueItemService queueItemService;
-        private ISwitch<string, Func<ICommand, Task<IEvent<QueueItem>>>> _queueItemCommandSwitch;
+        
         public override async Task<IEvent<QueueItem>> Push(IEvent<QueueItem> @event)
         {
             var queueItems = await queueItemService.SaveQueueItem(@event.Result);
             return DefaultEvent.Create(queueItems);
         }
 
-        public override async Task<IEvent<QueueItem>> Send<TCommand>(TCommand command)
-        {
-            var queueItemcommand = _queueItemCommandSwitch.Case(command.Name);
-
-            if(queueItemcommand == null)
-                throw new MethodAccessException();
-
-            return await queueItemcommand(command);
-        }
-
         public QueueItemEventHandler(IQueueItemService queueItemService)
         {
             this.queueItemService = queueItemService;
 
-            _queueItemCommandSwitch = DefaultSwitch
-                .Create<string, Func<ICommand, Task<IEvent<QueueItem>>>>()
+            CommandSwitch
                 .CaseWhen(Constants.GetQueueItems, SendQueueItems);
         }
 

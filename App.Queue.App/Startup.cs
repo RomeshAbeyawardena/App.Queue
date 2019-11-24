@@ -1,9 +1,13 @@
-﻿using App.Queue.Domains;
+﻿using App.Queue.Contracts;
+using App.Queue.Domains;
 using App.Queue.Domains.Enumerations;
 using Shared.Contracts;
+using Shared.Contracts.Providers;
+using Shared.Contracts.Services;
 using Shared.Domains;
 using Shared.Services;
 using Shared.Services.Builders;
+using System;
 using System.Threading.Tasks;
 
 namespace App.Queue.App
@@ -11,37 +15,51 @@ namespace App.Queue.App
     internal class Startup
     {
         private readonly IMediator mediator;
+        private readonly IEncryptionService encryptionService;
+        private readonly ICryptographicDataProvider cryptographicDataProvider;
 
         public async Task<int> Begin()
         {
             
-            var newQueue = await mediator.Push(DefaultEvent.Create(new Domains.Queue {
+            //var newQueueEvent = await mediator
+            //    .Push(DefaultEvent.Create(new Domains.Queue {
                 
-                }));
+            //    }));
 
+            //var key = encryptionService.GenerateIv(SymmetricAlgorithmType.Aes);
+            //var cryptoData = cryptographicDataProvider.GetCryptographicData(key);
+            //var data = await encryptionService
+            //    .EncryptString(SymmetricAlgorithmType.Aes,"You're a bad boy", cryptographicDataProvider.GeneratePasswordDerivedKey(cryptoData), key);
 
+            //var newQueueItem = await mediator
+            //    .Push(DefaultEvent.Create(new Domains.QueueItem {
+            //        QueueId = newQueueEvent.Result.Id,
+            //        Key =  key,
+            //        Data = data
+            //    }));;
 
-            await mediator
-                .Send<IEvent<Domains.QueueItem>>(DefaultCommand
-                .Create<Domains.QueueItem>(Constants.GetQueueItems, DictionaryBuilder
-                .Create<string, object>()
-                    .Add(Constants.QueueId, 1)
-                    .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending)));
-
-            await mediator
+            
+            var queueItemEventResult = await mediator
                 .Send<IEvent<Domains.Queue>>(DefaultCommand
-                    .Create<Domains.Queue>("Get", DictionaryBuilder
+                    .Create<Domains.Queue>(Constants.GetQueue, DictionaryBuilder
                         .Create<string, object>()
-                            .Add("QueueId", 1)));
+                            .Add(Constants.QueueUniqueId, new Guid("A1F0DE0C-9F5F-4A6D-B543-FE17D0591795"))));
 
-
+            var queueEventResult = await mediator
+                .Send<IEvent<QueueItem>>(DefaultCommand
+                    .Create<QueueItem>(Constants.GetQueueItems, DictionaryBuilder
+                        .Create<string, object>()
+                            .Add(Constants.QueueId, queueItemEventResult.Result.Id)
+                            .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending)));
 
             return await Task.FromResult(1210);
         }
 
-        public Startup(IMediator mediator)
+        public Startup(IMediator mediator, IEncryptionService encryptionService, ICryptographicDataProvider cryptographicDataProvider)
         {
             this.mediator = mediator;
+            this.encryptionService = encryptionService;
+            this.cryptographicDataProvider = cryptographicDataProvider;
         }
     }
 }

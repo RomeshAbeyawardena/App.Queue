@@ -1,5 +1,8 @@
 {
   "connectionStrings": {
     "default": "Server=localhost;Database=AppQueue;Trusted_Connection=true;MultipleActiveResultSets=true"
-  }
+  },
+  "digest": "YjlqJlNmeC0tNFhKODdVOHxzcSRRTHYzQkc9Uzk2TVFnVFI5Sz9ATGd3SkZ3WWYrXg==",
+  "defaultEncoding": "UTF-8",
+  "iterations": 1000000
 }

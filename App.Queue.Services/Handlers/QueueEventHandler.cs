@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using App.Queue.Contracts;
+using App.Queue.Domains;
 using Shared.Contracts;
 using Shared.Domains;
 using Shared.Library;
@@ -27,19 +28,25 @@ namespace App.Queue.Services.Handlers
 
         }
 
-        public override async Task<IEvent<Domains.Queue>> Send<TCommand>(TCommand command)
-        {
-            return await ExceptionHandler.TryAsync(async () =>
-            {
-                var commandArg = command.Parameters.TryGetValue("QueueId", out var arg);
-
-                return DefaultEvent.Create(await queueService.GetQueue(Convert.ToInt32(arg)));
-            }, ex => { });
-        }
-
         public QueueEventHandler(IQueueService queueService)
         {
             this.queueService = queueService;
+
+            CommandSwitch.CaseWhen(Constants.GetQueue, GetQueue);
+        }
+
+        private async Task<IEvent<Domains.Queue>> GetQueue(ICommand command)
+        {
+            if(!command.Parameters.TryGetValue(Constants.QueueUniqueId, out var queueIdentifier))
+                throw new MethodAccessException();
+
+            if (queueIdentifier is Guid queueIdentifierGuid)
+                return DefaultEvent.Create(await queueService.GetQueue(queueIdentifierGuid));
+
+            if(queueIdentifier is int queueIdentifierInt)
+                return DefaultEvent.Create(await queueService.GetQueue(queueIdentifierInt));
+            
+            throw new NotSupportedException();
         }
     }
 }

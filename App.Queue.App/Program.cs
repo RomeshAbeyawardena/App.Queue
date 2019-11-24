@@ -12,7 +12,8 @@ namespace App.Queue.App
         internal static async Task<int> Main(string[] args)
         {
             return await AppHost.CreateBuilder()
-                .ConfigureAppConfiguration(configuration => configuration.AddJsonFile("app.json"))
+                .ConfigureAppConfiguration(configuration => configuration
+                    .AddJsonFile("app.json"))
                 .RegisterServices(RegisterServices)
                 .Build<Startup>(serviceProvider: a => a.SubscribeToAllNotifications())
                 .RunAsync(async (startup) => await startup.Begin());

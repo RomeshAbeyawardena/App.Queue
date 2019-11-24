@@ -2,6 +2,9 @@
 {
     public interface IApplicationSettings
     {
-        public string DefaultConnectionString { get; set; }
+        int Iterations { get; set;}
+        string DefaultConnectionString { get; set; }
+        string Digest { get; set; }
+        string DefaultEncoding { get; set; }
     }
 }
