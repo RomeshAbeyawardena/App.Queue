@@ -39,18 +39,17 @@ namespace App.Queue.App
             //    }));;
 
             
-            var queueItemEventResult = await mediator
-                .Send<IEvent<Domains.Queue>>(DefaultCommand
-                    .Create<Domains.Queue>(Constants.GetQueue, DictionaryBuilder
-                        .Create<string, object>()
-                            .Add(Constants.QueueUniqueId, new Guid("A1F0DE0C-9F5F-4A6D-B543-FE17D0591795"))));
-
             var queueEventResult = await mediator
+                .Send<IEvent<Domains.Queue>>(DefaultCommand
+                    .Create<Domains.Queue>(Constants.GetQueue, dictionaryBuilder =>
+                            dictionaryBuilder.Add(Constants.QueueUniqueId, new Guid("A1F0DE0C-9F5F-4A6D-B543-FE17D0591795"))));
+
+            var queueItemEventResult = await mediator
                 .Send<IEvent<QueueItem>>(DefaultCommand
-                    .Create<QueueItem>(Constants.GetQueueItems, DictionaryBuilder
-                        .Create<string, object>()
-                            .Add(Constants.QueueId, queueItemEventResult.Result.Id)
-                            .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending)));
+                    .Create<QueueItem>(Constants.GetQueueItems, dictionaryBuilder =>
+                            dictionaryBuilder
+                                .Add(Constants.QueueId, queueEventResult.Result.Id)
+                                .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending)));
 
             return await Task.FromResult(1210);
         }

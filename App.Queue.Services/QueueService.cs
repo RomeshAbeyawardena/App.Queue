@@ -1,6 +1,7 @@
 ﻿using App.Queue.Contracts;
 using App.Queue.Data;
 using App.Queue.Domains;
+using Microsoft.EntityFrameworkCore;
 using Shared.Contracts;
 using Shared.Contracts.Factories;
 using System;
@@ -22,9 +23,9 @@ namespace App.Queue.Services
             return await _queueRepository.SaveChangesAsync(queue, saveChanges);
         }
 
-        public Task<Domains.Queue> GetQueue(Guid queueId)
+        public async Task<Domains.Queue> GetQueue(Guid queueId)
         {
-            throw new NotImplementedException();
+            return await _queueRepository.Where(queue => queue.UniqueId == queueId).SingleOrDefaultAsync();
         }
 
         public QueueService(IRepositoryFactory repositoryFactory)
