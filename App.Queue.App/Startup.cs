@@ -2,14 +2,11 @@
 using App.Queue.Domains;
 using App.Queue.Domains.Enumerations;
 using Shared.Contracts;
-using Shared.Contracts.Providers;
 using Shared.Contracts.Services;
-using Shared.Domains;
 using Shared.Services;
-using Shared.Services.Builders;
 using System;
 using System.Threading.Tasks;
-
+using Shared.Services.Extensions;
 namespace App.Queue.App
 {
     internal class Startup
@@ -23,7 +20,7 @@ namespace App.Queue.App
             
             //var newQueueEvent = await mediator
             //    .Push(DefaultEvent.Create(new Domains.Queue {
-                
+
             //    }));
 
             //var key = encryptionService.GenerateIv(SymmetricAlgorithmType.Aes);
@@ -32,24 +29,23 @@ namespace App.Queue.App
             //    .EncryptString(SymmetricAlgorithmType.Aes,"You're a bad boy", cryptographicDataProvider.GeneratePasswordDerivedKey(cryptoData), key);
 
             //var newQueueItem = await mediator
-            //    .Push(DefaultEvent.Create(new Domains.QueueItem {
+            //    .Push(DefaultEvent.Create(new Domains.QueueItem
+            //    {
             //        QueueId = newQueueEvent.Result.Id,
-            //        Key =  key,
+            //        Key = key,
             //        Data = data
-            //    }));;
-
+            //    })); ;
             
+
             var queueEventResult = await mediator
-                .Send<IEvent<Domains.Queue>>(DefaultCommand
-                    .Create<Domains.Queue>(Constants.GetQueue, dictionaryBuilder =>
-                            dictionaryBuilder.Add(Constants.QueueUniqueId, new Guid("A1F0DE0C-9F5F-4A6D-B543-FE17D0591795"))));
+                .Send<Domains.Queue>(Constants.GetQueue, dictionaryBuilder =>
+                            dictionaryBuilder.Add(Constants.QueueUniqueId, new Guid("A1F0DE0C-9F5F-4A6D-B543-FE17D0591795")));
 
             var queueItemEventResult = await mediator
-                .Send<IEvent<QueueItem>>(DefaultCommand
-                    .Create<QueueItem>(Constants.GetQueueItems, dictionaryBuilder =>
+                .Send<QueueItem>(Constants.GetQueueItems, dictionaryBuilder =>
                             dictionaryBuilder
                                 .Add(Constants.QueueId, queueEventResult.Result.Id)
-                                .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending)));
+                                .Add(Constants.QueueItemStatusType, QueueItemStatusType.Pending));
 
             return await Task.FromResult(1210);
         }

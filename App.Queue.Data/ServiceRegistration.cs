@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Contracts;
 using Shared.Contracts.Providers;
+using Shared.Library.Extensions;
 using Shared.Services.Extensions;
 using System;
 
@@ -25,7 +26,7 @@ namespace App.Queue.Data
                     queueOptions
                     .AddDefaults(EntityState.Added, (serviceProvider, queue) => {
                         var clockProvider = GetClockProvider(serviceProvider);
-                        queue.UniqueId = Guid.NewGuid();
+                        queue.UniqueId = queue.UniqueId.AssignOrDefault(Guid.NewGuid());
                         queue.Created = clockProvider.Now;
                         queue.Modified = clockProvider.Now;
                     })
